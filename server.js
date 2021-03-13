@@ -1,17 +1,21 @@
-//dependency
+//dependencies
 const express = require('express');
+const apiRoute = require('./route/apiRoute');
+const htmlRoute = require('./route/htmlRoute');
 
 //express setup
 const app = express();
-const PORT = process.env.PORT || 8080;
+
+
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(express.static("public"));
 
 //links routes
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+app.use('/api', apiRoute);
+app.use('/', htmlRoute)
 
 //listeners 
 app.listen(PORT, () => {
