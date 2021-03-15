@@ -1,5 +1,5 @@
 //dependencies 
-const saved = require('../db/saved');
+const saved = require("../db/saved");
 const router = require('express').Router();
 
 router.get('/notes', (req,res) => {
@@ -20,7 +20,7 @@ router.post('/notes', (req, res) => {
 
 router.delete('/notes/:id', (req, res) => {
     saved 
-    .deleteNote(req.params.ed)
+    .deleteNote(req.params.id)
     .then(() => res.json({ ok: true}))
     .catch((err) => res.status(500).json(err))
 });

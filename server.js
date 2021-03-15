@@ -1,13 +1,13 @@
 //dependencies
 const express = require('express');
-const apiRoute = require('./route/apiRoute');
-const htmlRoute = require('./route/htmlRoute');
+const apiRoute = require('./routes/apiRoutes');
+const htmlRoute = require('./routes/htmlRoutes');
 
 //express setup
 const app = express();
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
