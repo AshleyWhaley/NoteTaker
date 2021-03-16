@@ -17,7 +17,7 @@ class Saved {
             try {
                 parsedNote = [].concat(JSON.parse(notes));
             } catch (err) {
-                parsedNotes = [];
+                parsedNote = [];
             } return parsedNote;
         });
     }
