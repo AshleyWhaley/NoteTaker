@@ -2,6 +2,7 @@
 const saved = require("../db/saved");
 const router = require('express').Router();
 
+//get route for notes in the api
 router.get('/notes', (req,res) => {
     saved
     .getNote()
@@ -11,16 +12,18 @@ router.get('/notes', (req,res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+//post route for notes
 router.post('/notes', (req, res) => {
     saved
     .addNote(req.body)
     .then((note) => res.json(note))
-    .then((err) => res.status(500).json(err))
+    .catch((err) => res.status(500).json(err))
 });
 
+//delete route for notes
 router.delete('/notes/:id', (req, res) => {
     saved 
-    .deleteNote(req.params.id)
+    .removeNote(req.params.id)
     .then(() => res.json({ ok: true}))
     .catch((err) => res.status(500).json(err))
 });
